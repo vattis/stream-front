@@ -1,0 +1,211 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.gameHeader {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.gameImage {
+  width: 320px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.gameInfo {
+  flex: 1;
+}
+
+.gameInfo h1 {
+  margin: 0 0 15px 0;
+  color: #fff;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.purchaseSection {
+  margin-top: 20px;
+}
+
+.priceBox {
+  margin-bottom: 15px;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+
+.discountedPrice {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--steam-blue);
+}
+
+.cartBtn {
+  padding: 12px 24px;
+  background-color: var(--steam-green);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cartBtn:hover {
+  background-color: #2eb375;
+}
+
+.loginLink {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--steam-blue);
+  border-radius: 4px;
+  color: var(--steam-darker-bg);
+  font-weight: bold;
+}
+
+/* Review Section */
+.reviewSection {
+  margin-top: 40px;
+}
+
+.reviewSection h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.reviewForm {
+  background-color: var(--steam-card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.ratingGroup {
+  margin-bottom: 15px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--steam-dark-bg);
+  border: 1px solid var(--steam-border);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--steam-blue);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--steam-blue);
+  border: none;
+  border-radius: 4px;
+  color: var(--steam-darker-bg);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reviewList {
+  margin-top: 20px;
+}
+
+.reviewItem {
+  background-color: var(--steam-card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.reviewMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userName {
+  font-weight: bold;
+  color: var(--steam-text);
+}
+
+.reviewDate {
+  font-size: 12px;
+  color: var(--steam-text-light);
+}
+
+.deleteBtn {
+  background-color: var(--steam-red);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+.reviewStars {
+  margin-bottom: 8px;
+}
+
+.reviewContent {
+  color: var(--steam-text);
+  margin: 0;
+}
+
+.noReviews {
+  color: #888;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .gameHeader {
+    flex-direction: column;
+  }
+
+  .gameImage {
+    width: 100%;
+    max-width: 320px;
+  }
+}

@@ -1,0 +1,221 @@
+/* Steam 스타일 전역 CSS */
+:root {
+  --steam-dark-bg: #1b2838;
+  --steam-darker-bg: #171a21;
+  --steam-card-bg: #2a475e;
+  --steam-blue: #66c0f4;
+  --steam-blue-hover: #417a9b;
+  --steam-text: #c7d5e0;
+  --steam-text-light: #acb2b8;
+  --steam-green: #3ecf8e;
+  --steam-red: #ff6961;
+  --steam-border: #3b6e8f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--steam-dark-bg);
+  color: var(--steam-text);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--steam-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--steam-blue);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--steam-darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--steam-card-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--steam-border);
+}
+
+/* 유틸리티 클래스 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+/* 버튼 스타일 */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--steam-blue);
+  color: var(--steam-darker-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--steam-card-bg);
+  color: var(--steam-text);
+  border: 1px solid var(--steam-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--steam-border);
+}
+
+.btn-danger {
+  background-color: var(--steam-red);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 입력 필드 스타일 */
+.input {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--steam-dark-bg);
+  border: 1px solid var(--steam-border);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--steam-blue);
+  background-color: #223c4f;
+}
+
+.input::placeholder {
+  color: #8f98a0;
+}
+
+/* 카드 스타일 */
+.card {
+  background-color: var(--steam-card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* 그리드 레이아웃 */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.pagination a,
+.pagination span {
+  padding: 8px 12px;
+  background-color: var(--steam-card-bg);
+  border-radius: 4px;
+  color: var(--steam-text);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: var(--steam-blue-hover);
+}
+
+.pagination .active {
+  background-color: var(--steam-blue);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 로딩 스피너 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--steam-card-bg);
+  border-top-color: var(--steam-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}

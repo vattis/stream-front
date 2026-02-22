@@ -1,0 +1,224 @@
+.profileContainer {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--steam-dark-bg);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "header friend"
+    "games friend"
+    "comments friend";
+  gap: 30px;
+  align-items: start;
+}
+
+.profileHeader {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.recentGames {
+  grid-area: games;
+  margin-top: 30px;
+}
+
+.recentGames h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.game {
+  background-color: var(--steam-card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.game img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.gameTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--steam-text);
+}
+
+.playtime {
+  font-size: 14px;
+  color: var(--steam-text-light);
+}
+
+.comments {
+  grid-area: comments;
+  margin-top: 40px;
+}
+
+.comments h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.commentBox {
+  background-color: var(--steam-card-bg);
+  margin-bottom: 6px;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commentAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.commentContent {
+  margin: 8px 0 0 0;
+  color: var(--steam-text);
+}
+
+.commentMeta {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--steam-text-light);
+}
+
+.deleteBtn {
+  background-color: var(--steam-red);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+.commentForm {
+  margin-top: 2rem;
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  padding: 10px;
+  resize: vertical;
+  background-color: var(--steam-card-bg);
+  color: var(--steam-text);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--steam-blue);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: var(--steam-blue-hover);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.friendList {
+  grid-area: friend;
+  background-color: var(--steam-card-bg);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.friendList h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.friend img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.link {
+  color: var(--steam-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--steam-blue);
+  text-decoration: underline;
+}
+
+.imageLink img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.imageLink:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+.noData {
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "games"
+      "comments"
+      "friend";
+  }
+}

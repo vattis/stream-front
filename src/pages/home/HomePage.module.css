@@ -1,0 +1,67 @@
+.home {
+  width: 100%;
+}
+
+.banner {
+  background-image: url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner h2 {
+  font-size: 48px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 40px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.gameList {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sectionHeader h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.moreLink {
+  font-size: 0.95rem;
+  color: var(--steam-blue);
+}
+
+.moreLink:hover {
+  text-decoration: underline;
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .banner h2 {
+    font-size: 28px;
+    padding: 15px 20px;
+  }
+
+  .gameGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}

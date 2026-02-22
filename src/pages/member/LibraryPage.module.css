@@ -1,0 +1,141 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.library {
+  display: flex;
+  min-height: calc(100vh - 200px);
+}
+
+.sidebar {
+  width: 280px;
+  background-color: var(--steam-darker-bg);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.gameList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gameItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  color: var(--steam-text);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.gameItem:hover {
+  background-color: var(--steam-card-bg);
+}
+
+.gameItem.active {
+  background-color: var(--steam-blue);
+  color: #fff;
+}
+
+.gameItem img {
+  width: 50px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.gameItem span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.noGames {
+  color: #888;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  background-color: var(--steam-dark-bg);
+}
+
+.gameDetail {
+  display: flex;
+  gap: 30px;
+}
+
+.gameImage {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.gameInfo h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.stat {
+  color: var(--steam-text);
+  margin-bottom: 10px;
+}
+
+.storeLink {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--steam-blue);
+  color: var(--steam-darker-bg);
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.storeLink:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.placeholder p {
+  color: #888;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .library {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .gameDetail {
+    flex-direction: column;
+  }
+
+  .gameImage {
+    width: 100%;
+    max-width: 400px;
+  }
+}

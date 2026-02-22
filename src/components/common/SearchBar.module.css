@@ -1,0 +1,53 @@
+.searchBar {
+  background-color: var(--steam-dark-bg);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--steam-card-bg);
+}
+
+.select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: none;
+  background-color: var(--steam-card-bg);
+  color: var(--steam-text);
+  outline: none;
+  cursor: pointer;
+  border-right: 1px solid var(--steam-dark-bg);
+}
+
+.input {
+  width: 200px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: none;
+  background-color: var(--steam-card-bg);
+  color: var(--steam-text);
+  outline: none;
+}
+
+.input::placeholder {
+  color: #8f98a0;
+}
+
+.button {
+  padding: 10px 18px;
+  font-size: 14px;
+  border: none;
+  background-color: var(--steam-blue);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--steam-blue-hover);
+}

@@ -1,0 +1,37 @@
+.searchPage {
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.container h2 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.container h2 span {
+  color: var(--steam-blue);
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.noResults {
+  color: #888;
+  text-align: center;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .gameGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}

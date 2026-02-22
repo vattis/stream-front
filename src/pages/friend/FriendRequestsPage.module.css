@@ -1,0 +1,99 @@
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.container h2 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.requestList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.requestCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--steam-card-bg);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nickname {
+  color: var(--steam-text);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.userInfo:hover .nickname {
+  color: var(--steam-blue);
+}
+
+.date {
+  color: var(--steam-text-light);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.acceptBtn {
+  padding: 8px 16px;
+  background-color: var(--steam-green);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.acceptBtn:hover {
+  background-color: #2eb375;
+}
+
+.rejectBtn {
+  padding: 8px 16px;
+  background-color: var(--steam-red);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.rejectBtn:hover {
+  background-color: #c0392b;
+}
+
+.noRequests {
+  color: #888;
+  text-align: center;
+  padding: 40px;
+}

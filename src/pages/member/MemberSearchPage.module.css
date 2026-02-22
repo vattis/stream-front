@@ -1,0 +1,145 @@
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.container h2 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.searchForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.select {
+  padding: 12px;
+  background-color: var(--steam-card-bg);
+  border: 1px solid var(--steam-border);
+  border-radius: 4px;
+  color: var(--steam-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.input {
+  flex: 1;
+  padding: 12px;
+  background-color: var(--steam-dark-bg);
+  border: 1px solid var(--steam-border);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--steam-blue);
+}
+
+.searchBtn {
+  padding: 12px 24px;
+  background-color: var(--steam-blue);
+  border: none;
+  border-radius: 4px;
+  color: var(--steam-darker-bg);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchBtn:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.memberCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--steam-card-bg);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.memberInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nickname {
+  color: var(--steam-text);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.memberInfo:hover .nickname {
+  color: var(--steam-blue);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.friendBadge {
+  padding: 6px 12px;
+  background-color: var(--steam-green);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.pendingBadge {
+  padding: 6px 12px;
+  background-color: #f39c12;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.addFriendBtn {
+  padding: 8px 16px;
+  background-color: var(--steam-blue);
+  border: none;
+  border-radius: 4px;
+  color: var(--steam-darker-bg);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addFriendBtn:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.noResults {
+  color: #888;
+  text-align: center;
+  padding: 40px;
+}
+
+@media (max-width: 600px) {
+  .searchForm {
+    flex-direction: column;
+  }
+}

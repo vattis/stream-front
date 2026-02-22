@@ -1,0 +1,102 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.description {
+  color: var(--steam-text-light);
+  margin: 0;
+}
+
+.writeBtn {
+  padding: 10px 20px;
+  background-color: var(--steam-blue);
+  color: var(--steam-darker-bg);
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.writeBtn:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.articleList {
+  background-color: var(--steam-card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.articleHeader {
+  display: grid;
+  grid-template-columns: 1fr 120px 100px 60px;
+  padding: 12px 15px;
+  background-color: var(--steam-darker-bg);
+  font-weight: bold;
+  color: var(--steam-text);
+}
+
+.articleRow {
+  display: grid;
+  grid-template-columns: 1fr 120px 100px 60px;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--steam-darker-bg);
+  text-decoration: none;
+  color: var(--steam-text);
+  transition: background-color 0.2s;
+}
+
+.articleRow:hover {
+  background-color: rgba(102, 192, 244, 0.1);
+}
+
+.articleRow:last-child {
+  border-bottom: none;
+}
+
+.colTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.colAuthor,
+.colDate,
+.colViews {
+  text-align: center;
+  font-size: 14px;
+  color: var(--steam-text-light);
+}
+
+.noArticles {
+  color: #888;
+  text-align: center;
+  padding: 40px;
+}
+
+@media (max-width: 600px) {
+  .articleHeader,
+  .articleRow {
+    grid-template-columns: 1fr 80px;
+  }
+
+  .colDate,
+  .colViews {
+    display: none;
+  }
+}

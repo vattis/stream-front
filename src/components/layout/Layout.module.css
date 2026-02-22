@@ -1,0 +1,17 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  background-color: var(--steam-darker-bg);
+  text-align: center;
+  color: #808080;
+  padding: 20px;
+  margin-top: 40px;
+}

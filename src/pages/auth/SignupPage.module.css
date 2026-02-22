@@ -1,0 +1,149 @@
+.container {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.signupBox {
+  width: 400px;
+  max-width: 100%;
+  background-color: var(--steam-card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.signupBox h2 {
+  text-align: center;
+  color: var(--steam-blue);
+  margin-bottom: 30px;
+}
+
+.signupBox label {
+  display: block;
+  margin-top: 20px;
+  color: var(--steam-text);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--steam-dark-bg);
+  border: 1px solid var(--steam-border);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.input:focus {
+  border-color: var(--steam-blue);
+  outline: none;
+  background-color: #223c4f;
+}
+
+.input:disabled {
+  background-color: #1a2633;
+  color: #6a7a8a;
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inputRow .input {
+  flex: 1;
+}
+
+.btnSmall {
+  padding: 12px 16px;
+  background-color: var(--steam-border);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btnSmall:hover {
+  background-color: #4a8ab0;
+}
+
+.btnSmall:disabled {
+  background-color: #2a4a5e;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+  color: var(--steam-red);
+}
+
+.successMessage {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+  color: var(--steam-green);
+}
+
+.verifiedBadge {
+  color: var(--steam-green);
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.authSection {
+  margin-top: 10px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--steam-blue);
+  border: none;
+  border-radius: 4px;
+  color: var(--steam-darker-bg);
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: var(--steam-blue-hover);
+  color: #fff;
+}
+
+.submitBtn:disabled {
+  background-color: #4a6a7a;
+  cursor: not-allowed;
+}
+
+.loginLink {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loginLink a {
+  color: var(--steam-blue);
+}
+
+.loginLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 450px) {
+  .signupBox {
+    width: 100%;
+  }
+}
