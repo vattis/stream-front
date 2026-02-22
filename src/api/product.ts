@@ -42,36 +42,17 @@ export const productApi = {
   },
 
   addToCart: async (productId: number): Promise<void> => {
-    await apiClient.post(`/shoppingCartProduct/${productId}`);
+    await apiClient.post(`/api/shoppingCart/${productId}`);
   },
 
   addProductComment: async (productId: number, content: string, rating: number): Promise<void> => {
-    await apiClient.post(
-      `/productComment/${productId}`,
-      new URLSearchParams({
-        content,
-        rating: rating.toString(),
-      }),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      },
-    );
+    await apiClient.post(`/api/product/${productId}/comment`, {
+      content,
+      rating,
+    });
   },
 
-  deleteProductComment: async (commentId: number, productId: number): Promise<void> => {
-    await apiClient.post(
-      `/productComment/${commentId}`,
-      new URLSearchParams({
-        _method: 'delete',
-        productId: productId.toString(),
-      }),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      },
-    );
+  deleteProductComment: async (commentId: number): Promise<void> => {
+    await apiClient.delete(`/api/product/comment/${commentId}`);
   },
 };

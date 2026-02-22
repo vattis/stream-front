@@ -4,7 +4,8 @@ import { Friendship, FriendRequest, PageResponse } from '../types';
 export const friendshipApi = {
   getFriends: async (memberId: number): Promise<Friendship[]> => {
     const response = await apiClient.get(`/api/friendships/${memberId}`);
-    return response.data;
+    // 백엔드가 Page 객체를 반환하므로 content 배열 추출
+    return response.data.content || [];
   },
 
   getReceivedRequests: async (): Promise<FriendRequest[]> => {

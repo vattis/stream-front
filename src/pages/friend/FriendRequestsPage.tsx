@@ -63,12 +63,7 @@ export function FriendRequestsPage() {
                   alt={request.fromMember.nickname}
                   className={styles.avatar}
                 />
-                <div className={styles.userDetails}>
-                  <span className={styles.nickname}>{request.fromMember.nickname}</span>
-                  <span className={styles.date}>
-                    {new Date(request.createdTime).toLocaleDateString('ko-KR')}
-                  </span>
-                </div>
+                <span className={styles.nickname}>{request.fromMember.nickname}</span>
               </Link>
 
               <div className={styles.actions}>

@@ -12,14 +12,17 @@ export function LibraryPage() {
   const [selectedGame, setSelectedGame] = useState<MemberGame | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { user } = useAuthStore();
+  const { user, isLoading: isAuthLoading } = useAuthStore();
 
   useEffect(() => {
     const fetchLibrary = async () => {
       if (!memberId) return;
 
-      // 본인의 라이브러리만 접근 가능
-      if (user && user.id !== Number(memberId)) {
+      // 인증 확인 중이면 대기
+      if (isAuthLoading) return;
+
+      // 로그인하지 않았거나 본인이 아니면 접근 불가
+      if (!user || user.id !== Number(memberId)) {
         setIsLoading(false);
         return;
       }
@@ -40,13 +43,13 @@ export function LibraryPage() {
     };
 
     fetchLibrary();
-  }, [memberId, selectedGameId, user]);
+  }, [memberId, selectedGameId, user, isAuthLoading]);
 
-  if (isLoading) {
+  if (isLoading || isAuthLoading) {
     return <Loading />;
   }
 
-  if (user && user.id !== Number(memberId)) {
+  if (!user || user.id !== Number(memberId)) {
     return (
       <div className={styles.container}>
         <p>접근 권한이 없습니다.</p>

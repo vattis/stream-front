@@ -1,6 +1,6 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -24,7 +24,12 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    if (error.response?.status === 401) {
+    const requestUrl = error.config?.url || '';
+    // 로그아웃, 로그인, 현재 사용자 조회는 401이어도 리다이렉트하지 않음
+    const skipRedirectPaths = ['/api/logout', '/api/login', '/api/me'];
+    const shouldSkipRedirect = skipRedirectPaths.some((path) => requestUrl.includes(path));
+
+    if (error.response?.status === 401 && !shouldSkipRedirect) {
       // 토큰 만료 시 로그인 페이지로 리다이렉트
       window.location.href = '/login';
     }

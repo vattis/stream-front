@@ -38,8 +38,7 @@ export function CartPage() {
   };
 
   const totalPrice = items.reduce((sum, item) => {
-    const price = item.product.discountPrice ?? item.product.price;
-    return sum + price * item.quantity;
+    return sum + item.productPrice;
   }, 0);
 
   if (isLoading) {
@@ -60,37 +59,27 @@ export function CartPage() {
       ) : (
         <>
           <div className={styles.cartItems}>
-            {items.map((item) => {
-              const hasDiscount = item.product.discountId != null;
-              const displayPrice = item.product.discountPrice ?? item.product.price;
-
-              return (
-                <div key={item.id} className={styles.cartItem}>
-                  <Link to={`/product/${item.product.id}`} className={styles.productInfo}>
-                    <img
-                      src={item.product.imageUrl || '/images/game-image.jpeg'}
-                      alt={item.product.name}
-                      className={styles.productImage}
-                    />
-                    <div className={styles.productDetails}>
-                      <span className={styles.productName}>{item.product.name}</span>
-                      <div className={styles.priceInfo}>
-                        {hasDiscount && (
-                          <span className={styles.originalPrice}>
-                            ₩ {item.product.price.toLocaleString()}
-                          </span>
-                        )}
-                        <span className={styles.price}>₩ {displayPrice.toLocaleString()}</span>
-                      </div>
+            {items.map((item) => (
+              <div key={item.id} className={styles.cartItem}>
+                <div className={styles.productInfo}>
+                  <img
+                    src={item.avatarUrl || '/images/game-image.jpeg'}
+                    alt={item.productName}
+                    className={styles.productImage}
+                  />
+                  <div className={styles.productDetails}>
+                    <span className={styles.productName}>{item.productName}</span>
+                    <div className={styles.priceInfo}>
+                      <span className={styles.price}>₩ {item.productPrice.toLocaleString()}</span>
                     </div>
-                  </Link>
-
-                  <button onClick={() => handleRemove(item.id)} className={styles.removeBtn}>
-                    삭제
-                  </button>
+                  </div>
                 </div>
-              );
-            })}
+
+                <button onClick={() => handleRemove(item.id)} className={styles.removeBtn}>
+                  삭제
+                </button>
+              </div>
+            ))}
           </div>
 
           <div className={styles.summary}>

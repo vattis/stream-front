@@ -13,11 +13,12 @@ export interface ArticleComment {
 export const articleApi = {
   getArticle: async (
     articleId: number,
+    incrementView: boolean = true,
   ): Promise<{
     article: Article;
     comments: PageResponse<ArticleComment>;
   }> => {
-    const response = await apiClient.get(`/api/article/${articleId}`);
+    const response = await apiClient.get(`/api/article/${articleId}?view=${incrementView}`);
     return response.data;
   },
 
@@ -43,11 +44,11 @@ export const articleApi = {
       title,
       content,
     });
-    return response.data;
+    return response.data.articleId;
   },
 
-  deleteArticle: async (articleId: number, galleryId: number): Promise<void> => {
-    await apiClient.delete(`/api/article/${articleId}?galleryId=${galleryId}`);
+  deleteArticle: async (articleId: number): Promise<void> => {
+    await apiClient.delete(`/api/article/${articleId}`);
   },
 
   addArticleComment: async (articleId: number, content: string): Promise<void> => {

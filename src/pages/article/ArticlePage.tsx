@@ -1,4 +1,4 @@
-import { useEffect, useState, FormEvent } from 'react';
+import { useEffect, useState, useRef, FormEvent } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Article } from '../../types';
 import { articleApi, ArticleComment } from '../../api/article';
@@ -14,17 +14,26 @@ export function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [commentContent, setCommentContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const viewedRef = useRef<string | null>(null);
 
   const { user, isAuthenticated } = useAuthStore();
 
   useEffect(() => {
-    const fetchArticle = async () => {
-      if (!articleId) return;
+    const id = Number(articleId);
+    if (!articleId || isNaN(id)) {
+      setIsLoading(false);
+      return;
+    }
 
+    // 이미 조회한 게시글이면 조회수 증가하지 않음
+    const shouldIncrementView = viewedRef.current !== articleId;
+    viewedRef.current = articleId; // 비동기 호출 전에 즉시 설정
+
+    const fetchArticle = async () => {
       try {
-        const data = await articleApi.getArticle(Number(articleId));
+        const data = await articleApi.getArticle(id, shouldIncrementView);
         setArticle(data.article);
-        setComments(data.comments.content);
+        setComments(data.comments.content || []);
       } catch (error) {
         console.error('Failed to fetch article:', error);
       } finally {
@@ -39,7 +48,7 @@ export function ArticlePage() {
     if (!article || !confirm('게시글을 삭제하시겠습니까?')) return;
 
     try {
-      await articleApi.deleteArticle(article.id, article.authorId);
+      await articleApi.deleteArticle(article.id);
       navigate(-1);
     } catch {
       alert('삭제에 실패했습니다.');
@@ -53,7 +62,7 @@ export function ArticlePage() {
     setIsSubmitting(true);
     try {
       await articleApi.addArticleComment(article.id, commentContent);
-      const data = await articleApi.getArticle(article.id);
+      const data = await articleApi.getArticle(article.id, false);
       setComments(data.comments.content);
       setCommentContent('');
     } catch {

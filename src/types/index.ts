@@ -29,6 +29,7 @@ export interface SimpleProduct {
   discountId?: number;
   discountPrice?: number;
   discountRate?: number;
+  active?: boolean;
 }
 
 export interface DetailProduct {
@@ -79,15 +80,12 @@ export interface ProfileComment {
 // Friendship 관련 타입
 export interface Friendship {
   id: number;
+  fromMember: SimpleMember;
   toMember: SimpleMember;
-  avatarUrl?: string;
 }
 
-export interface FriendRequest {
-  id: number;
-  fromMember: SimpleMember;
-  createdTime: string;
-}
+// 친구 요청도 같은 구조 사용
+export type FriendRequest = Friendship;
 
 // Profile 관련 타입
 export interface ProfileDto {
@@ -119,8 +117,9 @@ export interface Article {
 // ShoppingCart 관련 타입
 export interface CartItem {
   id: number;
-  product: SimpleProduct;
-  quantity: number;
+  productName: string;
+  productPrice: number;
+  avatarUrl?: string;
 }
 
 // 페이지네이션

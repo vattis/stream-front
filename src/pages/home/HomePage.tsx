@@ -14,9 +14,12 @@ export function HomePage() {
     const fetchProducts = async () => {
       try {
         const data = await productApi.getShopProducts();
-        setProducts(data.popularProducts.content);
+        console.log('Shop products response:', data);
+        const popular = data?.popularProducts?.content || [];
+        setProducts(popular);
       } catch (error) {
         console.error('Failed to fetch products:', error);
+        setProducts([]);
       } finally {
         setIsLoading(false);
       }

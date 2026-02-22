@@ -68,10 +68,10 @@ export function ProductPage() {
   };
 
   const handleDeleteComment = async (commentId: number) => {
-    if (!product || !confirm('리뷰를 삭제하시겠습니까?')) return;
+    if (!confirm('리뷰를 삭제하시겠습니까?')) return;
 
     try {
-      await productApi.deleteProductComment(commentId, product.id);
+      await productApi.deleteProductComment(commentId);
       setComments(comments.filter((c) => c.id !== commentId));
     } catch {
       alert('삭제에 실패했습니다.');
@@ -97,11 +97,11 @@ export function ProductPage() {
         <div className={styles.gameInfo}>
           <h1>{product.name}</h1>
 
-          <p className={styles.rating}>
+          <div className={styles.rating}>
             <strong>평점:</strong>{' '}
             <StarRating value={Math.round(product.rate || 0)} readOnly size="medium" />
             <span>{product.rate?.toFixed(1) || 0}/5</span>
-          </p>
+          </div>
 
           <div className={styles.purchaseSection}>
             <div className={styles.priceBox}>
