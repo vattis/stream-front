@@ -79,11 +79,7 @@ export function GalleryPage() {
               <span className={styles.colViews}>조회</span>
             </div>
             {articles.map((article) => (
-              <Link
-                key={article.id}
-                to={`/article/${article.id}`}
-                className={styles.articleRow}
-              >
+              <Link key={article.id} to={`/article/${article.id}`} className={styles.articleRow}>
                 <span className={styles.colTitle}>{article.title}</span>
                 <span className={styles.colAuthor}>{article.authorNickname}</span>
                 <span className={styles.colDate}>

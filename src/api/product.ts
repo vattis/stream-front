@@ -2,7 +2,10 @@ import apiClient from './client';
 import { SimpleProduct, DetailProduct, ProductComment, PageResponse } from '../types';
 
 export const productApi = {
-  getShopProducts: async (filter?: string, pageNo: number = 0): Promise<{
+  getShopProducts: async (
+    filter?: string,
+    pageNo: number = 0,
+  ): Promise<{
     discountProducts: PageResponse<SimpleProduct>;
     popularProducts: PageResponse<SimpleProduct>;
   }> => {
@@ -14,7 +17,9 @@ export const productApi = {
     return response.data;
   },
 
-  getProduct: async (productId: number): Promise<{
+  getProduct: async (
+    productId: number,
+  ): Promise<{
     product: DetailProduct;
     comments: PageResponse<ProductComment>;
   }> => {
@@ -25,7 +30,7 @@ export const productApi = {
   searchProducts: async (
     searchTag?: string,
     searchWord?: string,
-    pageNo: number = 0
+    pageNo: number = 0,
   ): Promise<PageResponse<SimpleProduct>> => {
     const params = new URLSearchParams();
     if (searchTag) params.append('tag', searchTag);
@@ -40,29 +45,33 @@ export const productApi = {
     await apiClient.post(`/shoppingCartProduct/${productId}`);
   },
 
-  addProductComment: async (
-    productId: number,
-    content: string,
-    rating: number
-  ): Promise<void> => {
-    await apiClient.post(`/productComment/${productId}`, new URLSearchParams({
-      content,
-      rating: rating.toString(),
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+  addProductComment: async (productId: number, content: string, rating: number): Promise<void> => {
+    await apiClient.post(
+      `/productComment/${productId}`,
+      new URLSearchParams({
+        content,
+        rating: rating.toString(),
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 
   deleteProductComment: async (commentId: number, productId: number): Promise<void> => {
-    await apiClient.post(`/productComment/${commentId}`, new URLSearchParams({
-      _method: 'delete',
-      productId: productId.toString(),
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    await apiClient.post(
+      `/productComment/${commentId}`,
+      new URLSearchParams({
+        _method: 'delete',
+        productId: productId.toString(),
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 };

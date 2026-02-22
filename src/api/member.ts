@@ -20,7 +20,7 @@ export const memberApi = {
   searchMembers: async (
     searchTag: string = 'nickname',
     searchWord: string = '',
-    pageNo: number = 0
+    pageNo: number = 0,
   ): Promise<PageResponse<SimpleMember>> => {
     const params = new URLSearchParams({
       searchTag,
@@ -31,28 +31,33 @@ export const memberApi = {
     return response.data;
   },
 
-  addProfileComment: async (
-    profileId: number,
-    content: string
-  ): Promise<void> => {
-    await apiClient.post('/profileComment', new URLSearchParams({
-      profileId: profileId.toString(),
-      content,
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+  addProfileComment: async (profileId: number, content: string): Promise<void> => {
+    await apiClient.post(
+      '/profileComment',
+      new URLSearchParams({
+        profileId: profileId.toString(),
+        content,
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 
   deleteProfileComment: async (commentId: number, profileId: number): Promise<void> => {
-    await apiClient.post(`/profileComment/${commentId}`, new URLSearchParams({
-      _method: 'delete',
-      profileId: profileId.toString(),
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    await apiClient.post(
+      `/profileComment/${commentId}`,
+      new URLSearchParams({
+        _method: 'delete',
+        profileId: profileId.toString(),
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 };

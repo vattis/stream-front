@@ -45,16 +45,10 @@ export function ProductSearchPage() {
 
   return (
     <div className={styles.searchPage}>
-      <SearchBar
-        defaultTag={searchTag}
-        defaultWord={searchWord}
-        onSearch={handleSearch}
-      />
+      <SearchBar defaultTag={searchTag} defaultWord={searchWord} onSearch={handleSearch} />
 
       <div className={styles.container}>
-        <h2>
-          검색 결과 {searchWord && <span>: "{searchWord}"</span>}
-        </h2>
+        <h2>검색 결과 {searchWord && <span>: "{searchWord}"</span>}</h2>
 
         {isLoading ? (
           <Loading />

@@ -8,7 +8,12 @@ interface StarRatingProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-export function StarRating({ value = 0, onChange, readOnly = false, size = 'medium' }: StarRatingProps) {
+export function StarRating({
+  value = 0,
+  onChange,
+  readOnly = false,
+  size = 'medium',
+}: StarRatingProps) {
   const [hoverValue, setHoverValue] = useState(0);
 
   const displayValue = hoverValue || value;

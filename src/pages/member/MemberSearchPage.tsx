@@ -54,9 +54,7 @@ export function MemberSearchPage() {
     try {
       await friendshipApi.sendFriendRequest(memberId);
       // Update local state
-      setMembers(members.map(m =>
-        m.id === memberId ? { ...m, friendState: 'PENDING' } : m
-      ));
+      setMembers(members.map((m) => (m.id === memberId ? { ...m, friendState: 'PENDING' } : m)));
       alert('친구 요청을 보냈습니다.');
     } catch {
       alert('친구 요청에 실패했습니다.');

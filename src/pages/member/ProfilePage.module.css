@@ -8,9 +8,9 @@
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
-    "header friend"
-    "games friend"
-    "comments friend";
+    'header friend'
+    'games friend'
+    'comments friend';
   gap: 30px;
   align-items: start;
 }
@@ -200,7 +200,9 @@
 }
 
 .imageLink img {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .imageLink:hover img {
@@ -216,9 +218,9 @@
   .profileContainer {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "header"
-      "games"
-      "comments"
-      "friend";
+      'header'
+      'games'
+      'comments'
+      'friend';
   }
 }

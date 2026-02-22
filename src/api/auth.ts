@@ -3,14 +3,18 @@ import { LoginForm, SignUpForm, CurrentUser } from '../types';
 
 export const authApi = {
   login: async (form: LoginForm): Promise<void> => {
-    await apiClient.post('/sign-in', new URLSearchParams({
-      email: form.email,
-      password: form.password,
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    await apiClient.post(
+      '/sign-in',
+      new URLSearchParams({
+        email: form.email,
+        password: form.password,
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 
   logout: async (): Promise<void> => {
@@ -18,16 +22,20 @@ export const authApi = {
   },
 
   signUp: async (form: SignUpForm): Promise<void> => {
-    await apiClient.post('/sign-up', new URLSearchParams({
-      email: form.email,
-      password: form.password,
-      passwordConfirm: form.passwordConfirm,
-      nickname: form.nickname,
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    await apiClient.post(
+      '/sign-up',
+      new URLSearchParams({
+        email: form.email,
+        password: form.password,
+        passwordConfirm: form.passwordConfirm,
+        nickname: form.nickname,
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       },
-    });
+    );
   },
 
   sendAuthEmail: async (email: string): Promise<number> => {

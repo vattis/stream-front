@@ -16,11 +16,7 @@ export function WriteArticlePage() {
 
     setIsSubmitting(true);
     try {
-      const articleId = await articleApi.createArticle(
-        Number(galleryId),
-        title,
-        content
-      );
+      const articleId = await articleApi.createArticle(Number(galleryId), title, content);
       navigate(`/article/${articleId}`);
     } catch {
       alert('게시글 작성에 실패했습니다.');
@@ -60,18 +56,10 @@ export function WriteArticlePage() {
         </div>
 
         <div className={styles.actions}>
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
-            className={styles.cancelBtn}
-          >
+          <button type="button" onClick={() => navigate(-1)} className={styles.cancelBtn}>
             취소
           </button>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={styles.submitBtn}
-          >
+          <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
             {isSubmitting ? '작성 중...' : '작성하기'}
           </button>
         </div>

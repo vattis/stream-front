@@ -71,10 +71,7 @@ export function LibraryPage() {
                     selectedGame?.gameId === game.gameId ? styles.active : ''
                   }`}
                 >
-                  <img
-                    src={game.gameImageUrl || '/images/game-image.jpeg'}
-                    alt={game.gameName}
-                  />
+                  <img src={game.gameImageUrl || '/images/game-image.jpeg'} alt={game.gameName} />
                   <span>{game.gameName}</span>
                 </Link>
               </li>

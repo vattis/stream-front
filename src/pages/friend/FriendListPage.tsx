@@ -36,7 +36,7 @@ export function FriendListPage() {
 
     try {
       await friendshipApi.removeFriend(friendshipId);
-      setFriends(friends.filter(f => f.id !== friendshipId));
+      setFriends(friends.filter((f) => f.id !== friendshipId));
     } catch {
       alert('친구 삭제에 실패했습니다.');
     }
@@ -66,10 +66,7 @@ export function FriendListPage() {
               </Link>
 
               {isOwner && (
-                <button
-                  onClick={() => handleRemoveFriend(friend.id)}
-                  className={styles.removeBtn}
-                >
+                <button onClick={() => handleRemoveFriend(friend.id)} className={styles.removeBtn}>
                   삭제
                 </button>
               )}

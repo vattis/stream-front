@@ -14,10 +14,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
   return (
     <div className={styles.pagination}>
       {currentPage > 0 && (
-        <button
-          onClick={() => onPageChange(currentPage - 1)}
-          className={styles.pageBtn}
-        >
+        <button onClick={() => onPageChange(currentPage - 1)} className={styles.pageBtn}>
           &laquo; 이전
         </button>
       )}
@@ -33,10 +30,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
       ))}
 
       {currentPage < totalPages - 1 && (
-        <button
-          onClick={() => onPageChange(currentPage + 1)}
-          className={styles.pageBtn}
-        >
+        <button onClick={() => onPageChange(currentPage + 1)} className={styles.pageBtn}>
           다음 &raquo;
         </button>
       )}

@@ -93,10 +93,7 @@ export function ProfilePage() {
           profile.simpleMemberGames.map((game) => (
             <div key={game.gameId} className={styles.game}>
               <Link to={`/product/${game.gameId}`} className={styles.imageLink}>
-                <img
-                  src={game.gameImageUrl || '/images/game-image.jpeg'}
-                  alt={game.gameName}
-                />
+                <img src={game.gameImageUrl || '/images/game-image.jpeg'} alt={game.gameName} />
               </Link>
               <div>
                 <Link to={`/product/${game.gameId}`} className={styles.link}>
@@ -159,11 +156,7 @@ export function ProfilePage() {
               rows={3}
               className={styles.textarea}
             />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={styles.submitBtn}
-            >
+            <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
               {isSubmitting ? '작성 중...' : '댓글 작성'}
             </button>
           </form>

@@ -57,31 +57,19 @@ export function Navbar() {
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
               >
-                <Link
-                  to={`/profile/${user?.id}`}
-                  className={styles.userNick}
-                >
+                <Link to={`/profile/${user?.id}`} className={styles.userNick}>
                   {user?.nickName}
                 </Link>
 
                 {showDropdown && (
                   <div className={styles.dropdown}>
-                    <Link
-                      to={`/friends/${user?.id}`}
-                      className={styles.dropdownLink}
-                    >
+                    <Link to={`/friends/${user?.id}`} className={styles.dropdownLink}>
                       친구 목록
                     </Link>
-                    <Link
-                      to="/members/search"
-                      className={styles.dropdownLink}
-                    >
+                    <Link to="/members/search" className={styles.dropdownLink}>
                       회원 검색
                     </Link>
-                    <Link
-                      to="/friend-requests"
-                      className={styles.dropdownLink}
-                    >
+                    <Link to="/friend-requests" className={styles.dropdownLink}>
                       받은 초대
                     </Link>
                   </div>

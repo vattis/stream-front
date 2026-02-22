@@ -106,13 +106,9 @@ export function ProductPage() {
           <div className={styles.purchaseSection}>
             <div className={styles.priceBox}>
               {hasDiscount && (
-                <span className={styles.originalPrice}>
-                  ₩ {product.price?.toLocaleString()}
-                </span>
+                <span className={styles.originalPrice}>₩ {product.price?.toLocaleString()}</span>
               )}
-              <span className={styles.discountedPrice}>
-                ₩ {displayPrice?.toLocaleString()}
-              </span>
+              <span className={styles.discountedPrice}>₩ {displayPrice?.toLocaleString()}</span>
             </div>
 
             <div className={styles.purchaseButton}>
@@ -137,11 +133,7 @@ export function ProductPage() {
         {isAuthenticated ? (
           <form onSubmit={handleSubmitReview} className={styles.reviewForm}>
             <div className={styles.ratingGroup}>
-              <StarRating
-                value={reviewRating}
-                onChange={setReviewRating}
-                size="large"
-              />
+              <StarRating value={reviewRating} onChange={setReviewRating} size="large" />
             </div>
             <textarea
               value={reviewContent}

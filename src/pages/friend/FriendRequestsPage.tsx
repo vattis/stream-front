@@ -27,7 +27,7 @@ export function FriendRequestsPage() {
   const handleAccept = async (requestId: number) => {
     try {
       await friendshipApi.acceptFriendRequest(requestId);
-      setRequests(requests.filter(r => r.id !== requestId));
+      setRequests(requests.filter((r) => r.id !== requestId));
       alert('친구 요청을 수락했습니다.');
     } catch {
       alert('요청 수락에 실패했습니다.');
@@ -37,7 +37,7 @@ export function FriendRequestsPage() {
   const handleReject = async (requestId: number) => {
     try {
       await friendshipApi.rejectFriendRequest(requestId);
-      setRequests(requests.filter(r => r.id !== requestId));
+      setRequests(requests.filter((r) => r.id !== requestId));
     } catch {
       alert('요청 거절에 실패했습니다.');
     }
@@ -72,16 +72,10 @@ export function FriendRequestsPage() {
               </Link>
 
               <div className={styles.actions}>
-                <button
-                  onClick={() => handleAccept(request.id)}
-                  className={styles.acceptBtn}
-                >
+                <button onClick={() => handleAccept(request.id)} className={styles.acceptBtn}>
                   수락
                 </button>
-                <button
-                  onClick={() => handleReject(request.id)}
-                  className={styles.rejectBtn}
-                >
+                <button onClick={() => handleReject(request.id)} className={styles.rejectBtn}>
                   거절
                 </button>
               </div>

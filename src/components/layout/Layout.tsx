@@ -11,9 +11,7 @@ export function Layout({ children }: LayoutProps) {
     <div className={styles.layout}>
       <Navbar />
       <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
-        © 2025 Steam Clone. All rights reserved.
-      </footer>
+      <footer className={styles.footer}>© 2025 Steam Clone. All rights reserved.</footer>
     </div>
   );
 }

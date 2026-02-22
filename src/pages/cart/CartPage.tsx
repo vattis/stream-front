@@ -80,17 +80,12 @@ export function CartPage() {
                             ₩ {item.product.price.toLocaleString()}
                           </span>
                         )}
-                        <span className={styles.price}>
-                          ₩ {displayPrice.toLocaleString()}
-                        </span>
+                        <span className={styles.price}>₩ {displayPrice.toLocaleString()}</span>
                       </div>
                     </div>
                   </Link>
 
-                  <button
-                    onClick={() => handleRemove(item.id)}
-                    className={styles.removeBtn}
-                  >
+                  <button onClick={() => handleRemove(item.id)} className={styles.removeBtn}>
                     삭제
                   </button>
                 </div>

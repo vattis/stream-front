@@ -11,7 +11,9 @@ export interface ArticleComment {
 }
 
 export const articleApi = {
-  getArticle: async (articleId: number): Promise<{
+  getArticle: async (
+    articleId: number,
+  ): Promise<{
     article: Article;
     comments: PageResponse<ArticleComment>;
   }> => {
@@ -23,7 +25,7 @@ export const articleApi = {
     galleryId: number,
     searchTag?: string,
     searchWord?: string,
-    pageNo: number = 0
+    pageNo: number = 0,
   ): Promise<PageResponse<Article>> => {
     const params = new URLSearchParams();
     params.append('galleryId', galleryId.toString());
@@ -35,11 +37,7 @@ export const articleApi = {
     return response.data;
   },
 
-  createArticle: async (
-    galleryId: number,
-    title: string,
-    content: string
-  ): Promise<number> => {
+  createArticle: async (galleryId: number, title: string, content: string): Promise<number> => {
     const response = await apiClient.post('/api/article', {
       galleryId,
       title,

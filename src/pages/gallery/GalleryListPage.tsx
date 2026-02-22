@@ -79,11 +79,7 @@ export function GalleryListPage() {
         <>
           <div className={styles.galleryList}>
             {galleries.map((gallery) => (
-              <Link
-                key={gallery.id}
-                to={`/gallery/${gallery.id}`}
-                className={styles.galleryCard}
-              >
+              <Link key={gallery.id} to={`/gallery/${gallery.id}`} className={styles.galleryCard}>
                 <img
                   src={gallery.imageUrl || '/images/game-image.jpeg'}
                   alt={gallery.name}

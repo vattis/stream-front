@@ -126,11 +126,7 @@ export function ArticlePage() {
               rows={3}
               className={styles.textarea}
             />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={styles.submitBtn}
-            >
+            <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
               {isSubmitting ? '작성 중...' : '댓글 작성'}
             </button>
           </form>
